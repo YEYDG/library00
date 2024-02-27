@@ -2,7 +2,9 @@ package com.example.library00.book.dao;
 
 import com.example.library00.book.domain.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 
@@ -61,13 +63,12 @@ public class BookDao {
         });
         return books;
     }
-    public ArrayList<Book> getAllBooks(){
-        final ArrayList<Book> books = new ArrayList<Book>();
-        jdbcTemplate.query(QUERY_ALL_BOOKS_SQL, new RowCallbackHandler() {
+    public ArrayList<Book> getAllBooks() {
+        final ArrayList<Book> books = new ArrayList<>();
+        jdbcTemplate.query(QUERY_ALL_BOOKS_SQL, new ResultSetExtractor<ArrayList<Book>>() {
             @Override
-            public void processRow(ResultSet rs) throws SQLException {
-                rs.beforeFirst();
-                while(rs.next()){
+            public ArrayList<Book> extractData(ResultSet rs) throws SQLException, DataAccessException {
+                while (rs.next()) {
                     Book book = new Book();
                     book.setPrice(rs.getBigDecimal("price"));
                     book.setState(rs.getInt("state"));
@@ -83,11 +84,12 @@ public class BookDao {
                     book.setLanguage(rs.getString("language"));
                     books.add(book);
                 }
+                return books;
             }
         });
-
         return books;
     }
+
     public int deleteBook(long bookId){
 
         return jdbcTemplate.update(DELETE_BOOK_SQL,bookId);
