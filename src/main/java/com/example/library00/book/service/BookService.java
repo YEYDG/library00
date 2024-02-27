@@ -19,27 +19,11 @@ public class BookService {
 
     public ArrayList<Book> getAllBooks(){return bookDao.getAllBooks();}
 
-//    public boolean deleteBook(long bookId){
-//        boolean flag = matchBook(bookId);
-//        if(flag){
-//            bookDao.deleteBook(bookId);
-//            return true;
-//        }
-//        return false;
-//    }
+
 public int deleteBook(long bookId){
        return bookDao.deleteBook(bookId);
 
 }
-//    public boolean findBook(long bookId){
-//        ArrayList<Book> allBooks = getAllBooks();
-//        for (Book book : allBooks) {
-//            if (book != null && book.getBookId() == bookId) {
-//                return true; // 如果找到匹配的书籍，则返回 true
-//            }
-//        }
-//        return false; // 如果没有找到匹配的书籍，则返回 false
-//    }
 
     public int matchBook(String searchWord){return bookDao.matchBook(searchWord) ;}
 
@@ -49,4 +33,21 @@ public int deleteBook(long bookId){
 
     public boolean editBook(Book book){return bookDao.editBook(book)>0;}
 
+    //    public boolean deleteBook(long bookId){
+//        boolean flag = matchBook(bookId);
+//        if(flag){
+//            bookDao.deleteBook(bookId);
+//            return true;
+//        }
+//        return false;
+//    }
+//    public boolean findBook(long bookId){
+//        ArrayList<Book> allBooks = getAllBooks();
+//        for (Book book : allBooks) {
+//            if (book != null && book.getBookId() == bookId) {
+//                return true; // 如果找到匹配的书籍，则返回 true
+//            }
+//        }
+//        return false; // 如果没有找到匹配的书籍，则返回 false
+//    }
 }
