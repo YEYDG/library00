@@ -22,5 +22,17 @@ public class AdminService {
         }
     }
 
+    public boolean rePassword(Admin admin){
+        boolean flag = admainDao.findAdminId(admin.getAdminId());
+        if(flag) {
+            admainDao.rePassword(admin.getAdminId(), admin.getPassword());
+            return true;
+        }
+        else {
+            System.out.println("此ID不存在");
+            return false;
+        }
+    }
+
 
 }

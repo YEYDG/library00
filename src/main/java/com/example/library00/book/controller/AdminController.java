@@ -19,4 +19,11 @@ public class AdminController {
         if(flag) return ResponseBase.success(admin);
         else return ResponseBase.error(123,"用户ID已存在");
     }
+
+    @PostMapping("rePassword")
+    public Object rePassword(@RequestBody Admin admin){
+        boolean flag = adminService.rePassword(admin);
+        if(flag) return ResponseBase.success(admin);
+        else return ResponseBase.error(101,"此ID不存在");
+    }
 }
