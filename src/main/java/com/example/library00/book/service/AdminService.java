@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminService {
     @Autowired
-    private AdminDao admainDao;
+    private AdminDao adminDao;
+
+    public boolean findAdminId(long adminId) {
+        return adminDao.findAdminId(adminId);
+    }
 
     public boolean Register(Admin admin){
-        boolean flag = admainDao.findAdminId(admin.getAdminId());
+        boolean flag = adminDao.findAdminId(admin.getAdminId());
         if(!flag){
-         admainDao.addAdmin(admin.getAdminId(),admin.getPassword());
+         adminDao.addAdmin(admin.getAdminId(),admin.getPassword());
          return true;
         }
         else {
@@ -23,9 +27,9 @@ public class AdminService {
     }
 
     public boolean rePassword(Admin admin){
-        boolean flag = admainDao.findAdminId(admin.getAdminId());
+        boolean flag = adminDao.findAdminId(admin.getAdminId());
         if(flag) {
-            admainDao.rePassword(admin.getAdminId(), admin.getPassword());
+            adminDao.rePassword(admin.getAdminId(), admin.getPassword());
             return true;
         }
         else {
@@ -34,5 +38,8 @@ public class AdminService {
         }
     }
 
+    public String getPassword(long adminId){
+       return adminDao.getPasswd(adminId);
+    }
 
 }

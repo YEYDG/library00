@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 数据库连接信息 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/library"/>
+                <property name="username" value="root"/>
+                <property name="password" value="1234"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 映射器扫描 -->
+    <mappers>
+        <mapper resource="mapper/book.xml"/>
+        <mapper resource="mapper/admin.xml"/>
+        <!-- 如果使用注解方式配置映射器，可以使用 package 元素扫描包下的所有 Mapper Interface -->
+<!--         <package name="com.example.library00.book.dao"/>-->
+    </mappers>
+</configuration>

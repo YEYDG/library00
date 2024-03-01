@@ -1,9 +1,12 @@
 package com.example.library00.book.domain;
 
+import org.apache.ibatis.annotations.Result;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class Book {
+//    @Result(column = "book_id", property = "bookId")
     private long bookId;
     private String name;
 
@@ -16,7 +19,7 @@ public class Book {
     private Date pubdate;
     private int classId;
     private int pressmark;
-    private int state;
+    private int state;      //1为此书在，0为被借出
 
     public long getBookId() {
         return bookId;

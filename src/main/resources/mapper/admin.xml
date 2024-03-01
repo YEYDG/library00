@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.library00.book.dao.AdminMapper">
+    <select id="getMatchCount" resultType="int" parameterType="map">
+        SELECT COUNT(*) FROM admin WHERE admin_id = #{adminId} AND password = #{password}
+    </select>
+    <update id="rePassword" parameterType="map">
+        UPDATE admin set password = #{newPasswd} where admin_id = #{adminId}
+    </update>
+    <select id="getPasswd" resultType="String" parameterType="long">
+        SELECT password from admin where admin_id = #{id}
+    </select>
+    <select id="findAdminId" resultType="int" parameterType="long">
+        SELECT COUNT(*) FROM admin WHERE admin_id = #{id}
+    </select>
+    <insert id="addAdmin" parameterType="com.example.library00.book.domain.Admin">
+        INSERT INTO admin (admin_id, password) VALUES (#{adminId}, #{password});
+    </insert>
+</mapper>

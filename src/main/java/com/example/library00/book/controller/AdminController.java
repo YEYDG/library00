@@ -4,9 +4,7 @@ import com.example.library00.book.domain.Admin;
 import com.example.library00.book.model.ResponseBase;
 import com.example.library00.book.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AdminController {
@@ -25,5 +23,14 @@ public class AdminController {
         boolean flag = adminService.rePassword(admin);
         if(flag) return ResponseBase.success(admin);
         else return ResponseBase.error(101,"此ID不存在");
+    }
+
+    @GetMapping("getPassword")
+    public Object getPassword(@RequestParam long adminId){
+        //boolean flag = adminService.findAdminId(adminId);
+        //if(flag) {
+            return ResponseBase.success(adminService.getPassword(adminId)) ;
+        //}
+        //else return ResponseBase.error(101,"此ID不存在");
     }
 }
