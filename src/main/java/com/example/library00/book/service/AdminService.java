@@ -5,8 +5,10 @@ import com.example.library00.book.domain.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class AdminService {
+import java.io.Serializable;
+
+@Service("AdminService")
+public class AdminService implements IAdminService, Serializable {
     @Autowired
     private AdminDao adminDao;
 
@@ -14,7 +16,7 @@ public class AdminService {
         return adminDao.findAdminId(adminId);
     }
 
-    public boolean Register(Admin admin){
+    public boolean RegisterAdmin(Admin admin){
         boolean flag = adminDao.findAdminId(admin.getAdminId());
         if(!flag){
          adminDao.addAdmin(admin.getAdminId(),admin.getPassword());

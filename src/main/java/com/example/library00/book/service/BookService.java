@@ -5,10 +5,11 @@ import com.example.library00.book.domain.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-@Service
-public class BookService {
+@Service("BookService")
+public class BookService implements IBookService, Serializable {
     private BookDao bookDao;
 
     @Autowired
@@ -19,8 +20,7 @@ public class BookService {
 
     public ArrayList<Book> getAllBooks(){return bookDao.getAllBooks();}
 
-
-public int deleteBook(long bookId){
+    public int deleteBook(long bookId){
        return bookDao.deleteBook(bookId);
 
 }
