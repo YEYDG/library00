@@ -1,6 +1,7 @@
 package com.example.library00.book.dao;
 
 import com.example.library00.book.domain.Reader;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import java.util.List;
  */
 @Mapper
 @Repository
+@Slf4j
 public class ReaderDao  implements ReaderMapper {
     private final static String NAMESPACE = "com.example.library00.book.dao.ReaderMapper.";
     @Autowired
@@ -52,6 +54,7 @@ public class ReaderDao  implements ReaderMapper {
 
 
     public long addReader(Reader reader) {
+        log.info("\naddReader id:"+reader.getReaderId()+"\nname:"+reader.getName());
         return sqlSessionTemplate.insert(NAMESPACE+"addReader",reader);
     }
 }

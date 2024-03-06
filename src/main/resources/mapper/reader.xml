@@ -20,7 +20,7 @@
         update reader_card set name = #{name} where reader_id = #{readerId}
     </update>
     <insert id="addReader" parameterType="com.example.library00.book.domain.Reader">
-        insert into reader_info values(NULL,#{name},#{sex},#{birth},#{address},#{telcode})
+        insert into reader_info(reader_id,name,sex,birth,telcode) values(#{readerId},#{name},#{sex},#{birth},#{telcode});
     </insert>
 
     <resultMap id="readerResultMap" type="com.example.library00.book.domain.Reader">

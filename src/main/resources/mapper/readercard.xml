@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.library00.book.dao.ReaderCardMapper">
+    <insert id="addReaderCard" parameterType="com.example.library00.book.domain.ReaderCard">
+        insert into reader_card(reader_id,name,passwd,card_state)
+        values (#{readerId},#{name},#{passwd},#{card_state});
+    </insert>
+    <select id="findReaderCardByReaderId" parameterType="long" resultMap="readerCardResultMap">
+        select * from reader_card where reader_id = #{readerId}
+    </select>
+    <update id="rePasswd" parameterType="map">
+        update reader_card set passwd=#{newPasswd} where reader_id = #{readerId}
+    </update>
+    <delete id="deleteReaderCard" parameterType="long">
+        delete from reader_card where reader_id=#{readerId};
+    </delete>
+
+    <resultMap id="readerCardResultMap" type="com.example.library00.book.domain.ReaderCard">
+        <id column="reader_id" property="readerId"/>
+    </resultMap>
+</mapper>

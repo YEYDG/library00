@@ -1,5 +1,8 @@
 package com.example.library00.book.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,6 +11,8 @@ import java.util.Date;
  * @version 1.0
  * @date 2024/3/4 0:05
  */
+@AllArgsConstructor
+@NoArgsConstructor
 public class Reader implements Serializable {
 
     private long readerId;
@@ -16,7 +21,11 @@ public class Reader implements Serializable {
     private Date birth;
     private String address;
     private String telcode;
-
+    public Reader(long readerId,String name){
+        //this.readerId = readerId;
+        setReaderId(readerId);
+        setName(name);
+    }
     public long getReaderId() {
         return readerId;
     }

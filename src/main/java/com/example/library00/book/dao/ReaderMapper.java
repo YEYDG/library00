@@ -12,11 +12,11 @@ import java.util.ArrayList;
  */
 @Mapper
 public interface ReaderMapper {
-    public ArrayList<Reader> getAllReader();
+     ArrayList<Reader> getAllReader();
 
-    public Reader findReaderByReaderId(final long readerId);
-    public int deleteReader(final long readerId);
-    public int editReader(final Reader reader);
-    public int editReaderCard(final Reader reader);
-    public long addReader(final Reader reader);
+     Reader findReaderByReaderId(final long readerId);
+     int deleteReader(final long readerId);
+     int editReader(final Reader reader);
+     int editReaderCard(final Reader reader);
+     long addReader(final Reader reader);
 }

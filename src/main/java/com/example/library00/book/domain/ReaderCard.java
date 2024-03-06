@@ -16,5 +16,5 @@ public class ReaderCard implements Serializable {
     private long readerId;
     private String name;
     private String passwd;
-
+    private String card_state;
 }

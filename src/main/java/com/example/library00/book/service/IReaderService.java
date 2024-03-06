@@ -10,12 +10,12 @@ import java.util.ArrayList;
  * @date 2024/3/4 23:55
  */
 public interface IReaderService {
-    public ArrayList<Reader> getAllReader();
-    public boolean deleteReader(long readerId);
+     ArrayList<Reader> getAllReader();
+     boolean deleteReader(long readerId);
 
-    public Reader getReader(long readerId);
-    public boolean editReader(Reader reader);
-    public boolean editReaderCard(Reader reader);
-    public boolean addReader(Reader reader);
+     Reader getReader(long readerId);
+     boolean editReader(Reader reader);
+     boolean editReaderCard(Reader reader);
+     boolean addReader(Reader reader);
 
 }
