@@ -1,4 +1,4 @@
-package com.example.library00.book.dao;
+package com.example.library00.book.dao.mapper;
 
 import com.example.library00.book.domain.Book;
 import org.apache.ibatis.annotations.Mapper;

@@ -1,5 +1,6 @@
 package com.example.library00.book.dao;
 
+import com.example.library00.book.dao.mapper.ReaderMapper;
 import com.example.library00.book.domain.Reader;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Mapper;
@@ -7,8 +8,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.print.attribute.standard.MediaSize;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +20,7 @@ import java.util.List;
 @Repository
 @Slf4j
 public class ReaderDao  implements ReaderMapper {
-    private final static String NAMESPACE = "com.example.library00.book.dao.ReaderMapper.";
+    private final static String NAMESPACE = "com.example.library00.book.dao.mapper.ReaderMapper.";
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 

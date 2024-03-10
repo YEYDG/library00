@@ -1,6 +1,6 @@
 package com.example.library00.book.dao;
 
-import com.example.library00.book.domain.Reader;
+import com.example.library00.book.dao.mapper.ReaderCardMapper;
 import com.example.library00.book.domain.ReaderCard;
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -17,10 +17,10 @@ import java.util.Map;
  */
 @Mapper
 @Repository
-public class ReaderCardDao implements ReaderCardMapper{
+public class ReaderCardDao implements ReaderCardMapper {
     @Autowired
     SqlSessionTemplate sqlSessionTemplate;
-    private final static String NAMESPACE = "com.example.library00.book.dao.ReaderCardMapper.";
+    private final static String NAMESPACE = "com.example.library00.book.dao.mapper.ReaderCardMapper.";
 
     public ReaderCard findReaderCardByReaderId(long readerId){
        return sqlSessionTemplate.selectOne(NAMESPACE+"findReaderCardByReaderId",readerId);

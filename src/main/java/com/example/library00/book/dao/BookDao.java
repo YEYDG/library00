@@ -1,5 +1,6 @@
 package com.example.library00.book.dao;
 
+import com.example.library00.book.dao.mapper.BookMapper;
 import com.example.library00.book.domain.Book;
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -17,8 +18,8 @@ import java.util.List;
 
 @Repository
 @Mapper
-public class BookDao implements BookMapper{
-    private final static  String NAMESPACE = "com.example.library00.book.dao.BookMapper.";
+public class BookDao implements BookMapper {
+    private final static  String NAMESPACE = "com.example.library00.book.dao.mapper.BookMapper.";
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 

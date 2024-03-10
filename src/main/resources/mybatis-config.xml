@@ -21,6 +21,10 @@
         <mapper resource="mapper/admin.xml"/>
         <mapper resource="mapper/reader.xml"/>
         <mapper resource="mapper/readercard.xml"/>
+
+        <mapper class="com.example.library00.book.dao.mapper.LendMapper"/>
+
+
         <!-- 如果使用注解方式配置映射器，可以使用 package 元素扫描包下的所有 Mapper Interface -->
 <!--         <package name="com.example.library00.book.dao"/>-->
     </mappers>

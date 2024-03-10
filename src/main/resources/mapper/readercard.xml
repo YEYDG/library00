@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.example.library00.book.dao.ReaderCardMapper">
+<mapper namespace="com.example.library00.book.dao.mapper.ReaderCardMapper">
     <insert id="addReaderCard" parameterType="com.example.library00.book.domain.ReaderCard">
         insert into reader_card(reader_id,name,passwd,card_state)
         values (#{readerId},#{name},#{passwd},#{card_state});

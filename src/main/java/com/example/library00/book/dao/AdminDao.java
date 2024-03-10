@@ -1,5 +1,6 @@
 package com.example.library00.book.dao;
 
+import com.example.library00.book.dao.mapper.AdminMapper;
 import com.example.library00.book.domain.Admin;
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -11,10 +12,10 @@ import java.util.Map;
 
 @Repository
 @Mapper
-public class AdminDao implements AdminMapper{
+public class AdminDao implements AdminMapper {
     @Autowired
     SqlSessionTemplate sqlSessionTemplate;
-    private final static String NAMESPACE = "com.example.library00.book.dao.AdminMapper.";
+    private final static String NAMESPACE = "com.example.library00.book.dao.mapper.AdminMapper.";
     public int getMatchCount(long adminId,String password){
         Map<String,Object> paramMap = new HashMap<>();
         paramMap.put("adminId",adminId);
